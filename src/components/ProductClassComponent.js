@@ -1,13 +1,12 @@
 // Import Firestore database
-import db from './db';
+import db from './db2';
 import { useState } from 'react';
 
 const ProductClassComponent = () => {
 
     const [info, setInfo] = useState([]);
 
-    // Start the fetch operation as soon as
-    // the page loads
+    // Start the fetch operation as soon as the page loads
 
     // This is a fix to window not defined.
     if (typeof window !== "undefined") {
@@ -16,18 +15,14 @@ const ProductClassComponent = () => {
         });
     }
 
-
-
     // Fetch the required data using the get() method
     const Fetchdata = () => {
         db.collection("data").get().then((querySnapshot) => {
 
-            // Loop through the data and store
-            // it in array to display
+            // Loop through the data and store it in an array to display
             querySnapshot.forEach(element => {
                 var data = element.data();
                 setInfo(arr => [...arr, data]);
-
             });
         })
     }
@@ -55,11 +50,7 @@ const Frame = ({ fullName, phoneNumber, dateOfBirth }) => {
             <div className="relative flex flex-col m-5 bg-white z-30 p-10">
 
                 <p className='absolute top-2 right-2 text-xs italic text-gray-400'>FULL NAME : {fullName}</p>
-
-
                 <p className='my-3'>PHONE NUMBER : {phoneNumber}</p>
-
-
                 <p className='text-xs my-2 line-clamp-2'>DATE OF BIRTH : {dateOfBirth}</p>
 
             </div>

@@ -15,7 +15,7 @@ function Banner() {
                 interval={5000}
             >
                 <div>
-                    <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIHVmaJ60IsrbeBiboHZMsWLxiS7c1U0LC4g&usqp=CAU" alt="" />
+                    <img loading="lazy" src="import" alt="" />
                 </div>
                 <div>
                     <img loading="lazy" src="https://img.philkotse.com/2020/11/27/KjJYY7r3/ec-genuine-3-day-spare-parts-guarantee-cover-photo-fe92.jpg" alt="" />

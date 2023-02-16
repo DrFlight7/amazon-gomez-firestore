@@ -34,7 +34,8 @@ function Header() {
 
                 </div>
 
-                {/* Search*/}
+                 
+				
                 <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
                     <input className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4" type="text" />
                     <SearchIcon className="h-12 p-4" />
@@ -71,15 +72,11 @@ function Header() {
                     <MenuIcon className='h-6 mr-1' />
                     All
                 </p>
-                <p className="link">Foton</p>
-                <p className="link">Dashboard</p>
-                <p className="link">Clients</p>
-                <p className="link hidden lg:inline-flex">Products</p>
-                <p className="link hidden lg:inline-flex">Invoices</p>
-                <p className="link hidden lg:inline-flex">Quotes</p>
-                <p className="link hidden lg:inline-flex">Vendors</p>
-                <p className="link hidden lg:inline-flex">Purchase Orders</p>
-                <p className="link hidden lg:inline-flex">Reports</p>
+                <p className="link">Sales Management</p>
+                <p className="link">Inventory Management</p>
+                <p className="link">Sales Returns</p>
+                <p className="link hidden lg:inline-flex">Clients</p>
+                <p className="link hidden lg:inline-flex">Users</p>
             </div>
         </header>
     )

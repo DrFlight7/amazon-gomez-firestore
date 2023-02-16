@@ -83,7 +83,14 @@ function Checkout() {
                                 onClick={createCheckoutSession}
                                 disabled={!data}
                                 className={`button mt-2 ${!data && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
-                                {!data ? "Sign in to checkout" : "Proceed to checkout"}
+                                {!data ? "Sign in to checkout" : "Proceed to checkout with GCash"}
+                            </button>
+                            <button
+                                role="link"
+                                onClick={createCheckoutSession}
+                                disabled={!data}
+                                className={`button mt-2 ${!data && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}`}>
+                                {!data ? "Sign in to checkout" : "Proceed to checkout with Stripe"}
                             </button>
                         </>
                     )}

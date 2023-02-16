@@ -1,10 +1,11 @@
-import db from './db';
+import db from './db2';
 import { useState } from 'react';
 
 const Firestore = () => {
     const [fullName, Setname] = useState("");
     const [phoneNumber, Setnumber] = useState("");
     const [dateofbirth, Setbirth] = useState("");
+
     const sub = (e) => {
         e.preventDefault();
 
