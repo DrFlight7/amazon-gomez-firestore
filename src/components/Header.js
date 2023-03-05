@@ -9,12 +9,46 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useSelector } from 'react-redux';
 import { selectItems } from '../slices/basketSlice';
+import { useState, useEffect } from "react";
 
+//importing the function from index
+//import {handleChange} from '../pages/index';
+
+import { displayValueFromVariableOutsideComponent } from '../pages';
+
+export let inputValue = "";
+export let searchInput = "";
+let setSearchInput = "";
 
 function Header() {
     const { data } = useSession();
     const router = useRouter();
     const items = useSelector(selectItems);
+
+    [searchInput, setSearchInput] = useState(''); 
+
+    const handleButtonClick = (event) => {
+        inputValue = searchInput;
+        //console.log("From the Header Component handleButtonClick: ", inputValue);
+        displayValueFromVariableOutsideComponent();
+    }
+
+    const handleChange = (event) => {
+        setSearchInput(event.target.value);
+        //inputValue = searchInput;
+        //console.log("This is from handleChange function");
+        //console.log("Input value: ", event.target.value);
+        //console.log("From the Header.js handleChange inValue: ", inputValue);
+        displayValueFromVariableOutsideComponent();
+    }
+    
+    useEffect(() => {
+        const inputSearchFunction = document.getElementById("inputSearch");
+        inputSearchFunction.addEventListener("change", function(event) {
+            handleButtonClick();
+        });
+    })
+    
 
     return (
         <header>
@@ -34,11 +68,20 @@ function Header() {
 
                 </div>
 
-                 
-				
                 <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
-                    <input className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4" type="text" />
-                    <SearchIcon className="h-12 p-4" />
+                    <input 
+                        id="inputSearch"
+                        className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4" 
+                        type="text"
+                        set="Hello" 
+                        onChange={(event) => handleChange(event)}
+                        //value={"Hello World!"}
+                        value={(searchInput)}
+                    />
+                    <SearchIcon 
+                        className="h-12 p-4" 
+                        onClick={handleButtonClick}
+                    />
                 </div>
 
                 {/* Right*/}

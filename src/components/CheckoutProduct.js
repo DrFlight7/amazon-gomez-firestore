@@ -12,7 +12,7 @@ function CheckoutProduct({
     rating,
     description,
     category,
-    image,
+    url,
     hasPrime
 }) {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function CheckoutProduct({
             rating,
             description,
             category,
-            image,
+            url,
             hasPrime
         };
 
@@ -40,11 +40,17 @@ function CheckoutProduct({
 
     return (
         <div className="grid grid-cols-5">
-            <Image src={image} height={200} width={200} objectFit="contain" />
+            
 
             {/* Middle Section*/}
             <div className="col-span-3 mx-5">
-                <p>{title}</p>
+                <img
+                    src={url}
+                    height={200}
+                    width={200}
+                    objectFit="contain"
+                >
+                </img>
                 <div className='flex'>
                     {Array(rating)
                         .fill()
@@ -57,12 +63,7 @@ function CheckoutProduct({
                 <CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Php '} renderText={value => <div>{value}</div>} />
                 {hasPrime && (
                     <div className='flex items-center space-x-2'>
-                        <img
-                            loading="lazy"
-                            className='w-12'
-                            src="https://links.papareact.com/fdw"
-                            atl=""
-                        />
+                        
                         <p className='text-xs text-gray-500'>FREE Next-Day Delivery</p>
                     </div>
                 )}
